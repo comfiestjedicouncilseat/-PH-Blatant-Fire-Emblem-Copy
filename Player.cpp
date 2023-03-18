@@ -1,33 +1,41 @@
 #include <iostream>
+#include <fstream>
 #include "Player.hpp"
 
-Player::Player(){
-    name = "";
-    classType = "";
+Player::Player(std::string nameChoice, std::string classChoice, std::string skillChoice){
+
+    name = nameChoice;
+    classType = classChoice;
     expCurr = 0;
-    level = 1;
-    hpTotal = 0;      
-    hpCurr = 0;
-    defTotal = 0;       
-    defCurr = 0;
-    resTotal = 0;
-    resCurr = 0;
-    atkTotal = 0; 
-    atkCurr = 0;
-    skillTotal = 0;   
-    skillCurr = 0;
-    spdTotal = 0;      
-    spdCurr = 0;
-    moveTotal = 0;    
-    moveCurr = 0;       
-    conTotal = 0;  
-    conCurr = 0;
+    
+    // update stats
+    std::ifstream fin("Data Files/Class Data/" + classChoice + ".txt");
+    int currLine;
+    
+    // setting player class base stats
+    fin >> currLine;
+    stats.hpTotal = stats.hpCurr = currLine;
+    fin >> currLine;
+    stats.atkTotal = stats.atkCurr = currLine;
+    fin >> currLine;
+    stats.dexTotal = stats.dexCurr = currLine;
+    fin >> currLine;
+    stats.spdTotal = stats.spdCurr = currLine;
+    fin >> currLine;
+    stats.defTotal = stats.defCurr = currLine;
+    fin >> currLine;
+    stats.resTotal = stats.resCurr = currLine;
+    fin >> currLine;
+    stats.conTotal = stats.conCurr = currLine;
+    fin >> currLine;
+    stats.moveTotal = stats.moveCurr = currLine;
 
 }
 
 Player::~Player(){
     
 }
+
 
 
 

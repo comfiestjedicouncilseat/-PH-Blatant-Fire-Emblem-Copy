@@ -1,10 +1,9 @@
 // Stats and labels are orgainized by line.
-Name of Class
 Total Health
+Total Attack
+Total Dexterity
+Total Speed
 Total Defense
 Total Resistance
-Total Attack
-Total Skill
-Total Speed
-Total Movement
 Total Constitution
+Total Movement

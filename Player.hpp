@@ -1,18 +1,18 @@
 #include <iostream>
 #include "Entity.hpp"
+#include "PlayerStats.hpp"
 
-class Player : public Entity{
+class Player : Entity{
     private:
 
-        std::string classType;
         int expCurr;
+        PlayerStats stats;
 
     public:
 
-        Player();
-        //Obsolete constructor?
-        // Player(std::string nm, std::string type, int lvl, int hp, int def, int atk, int skill, int spd, int move, int con);
+        Player(std::string nameChoice, std::string classChoice, std::string skillChoice);
         ~Player();
 
+        // need functions to calc stuff like avoid, which depends on stats and inventory weapons
 
 };

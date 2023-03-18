@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include "Player.hpp"
 
 //function declarations
@@ -18,9 +17,7 @@ int main(){
 }
 
 // function for displaying and calling other menu functions
-void mainMenu(){
-    // probably move this to the new game and continue functions
-    Player P;
+void mainMenu(){    
 
     // variable to hold user's choice in current screen
     std::string option;
@@ -55,19 +52,31 @@ void mainMenu(){
 }
 
 void newGame(){
-    std::string option;
-    //start a "New Game"
-    std::cout << "Chose new game." << std::endl;
-    //choose a save file i guess
-            
+    std::string nameChoice;
+    std::string classOption;
+    std::string classChoice;
+    std::string skillChoice;
+    // start a "New Game"
+    std::cout << "Creating new game." << std::endl;
+    // choose a save file i guess
+    //
+
+    std::cout << "Name yourself: ";
+    std::cin >> nameChoice;
     std::cout << "pick a class" << std::endl;
-    std::cin >> option;
+    std::cin >> classOption;
+    if (classOption == "a"){
+        classChoice = "Footsoldier";
+    } else if (classOption == "b"){
+        classChoice = "Pegasus Rider";
+    }
 
-    // std::ifstream fin(option);
-    // std::string nextLine;
-    // while (fin >> nextLine){
+    std::cout << "Pick a skill" << std::endl;
+    std::cin >> skillChoice;
 
-    // }
+    // create a new player object
+    Player P(nameChoice, classChoice, skillChoice);
+    
 }
 
 void conGame(){
@@ -94,14 +103,14 @@ void exitGame(){
 
 
 
-void classInfoInsert(std::string classChoice){
+// void classInfoInsert(std::string classChoice){
     
-    if (classChoice == "Soldier"){
-        std::ifstream fin("Soldier.txt");
-    } else if (classChoice == "Pegasus Rider"){
-        std::ifstream fin("Pegasus Rider.txt");
-    }
+//     if (classChoice == "Soldier"){
+//         std::ifstream fin("Soldier.txt");
+//     } else if (classChoice == "Pegasus Rider"){
+//         std::ifstream fin("Pegasus Rider.txt");
+//     }
 
 
 
-}
+// }
