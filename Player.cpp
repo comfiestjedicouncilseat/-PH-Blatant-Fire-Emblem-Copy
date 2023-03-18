@@ -13,6 +13,7 @@ Player::Player(std::string nameChoice, std::string classChoice, std::string skil
     int currLine;
     
     // setting player class base stats
+    // probably really crappy code, can't figure better way yet
     fin >> currLine;
     stats.hpTotal = stats.hpCurr = currLine;
     fin >> currLine;
