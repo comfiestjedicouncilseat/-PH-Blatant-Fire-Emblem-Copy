@@ -54,3 +54,7 @@ Entity::Entity(std::string nm, int lvl, int hp, int def, int res, int atk, int s
     bool immune = imm;        //does it negate statuses
 
 }
+
+Entity::~Entity(){
+    
+}
