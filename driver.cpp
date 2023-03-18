@@ -2,12 +2,24 @@
 #include <fstream>
 #include "Player.hpp"
 
-
+//function declarations
 int main();
+void mainMenu();
+void newGame();
+void conGame();
+void settings();
+void exitGame();
 
-
-//probably put this main driver code into its own function
+// function starts up the main menu
 int main(){
+    // starts the main menu up
+    mainMenu();
+    return 0;
+}
+
+// function for displaying and calling other menu functions
+void mainMenu(){
+    // probably move this to the new game and continue functions
     Player P;
 
     // variable to hold user's choice in current screen
@@ -26,45 +38,61 @@ int main(){
         std::cin >> option;
 
         if (option == "ng"){
-            //start a "New Game"
-            std::cout << "Chose new game." << std::endl;
-            //choose a save file i guess
-            
-            std::cout << "pick a class" << std::endl;
-            std::cin >> option;
-
-            // std::ifstream fin(option);
-            // std::string nextLine;
-            // while (fin >> nextLine){
-
-            // }
-
+            newGame();
 
         } else if (option == "con"){
-            // continue an existing game ( multiple saves system?? )
-            std::cout << "Chose to continue a current save." << std::endl;
-
-            // need a way to go back to main menu
+            conGame();
 
         } else if (option == "op"){
-            // goes to options screen to change stuff
-            std::cout << "Chose settings." << std::endl;
-
-            // need a way to go back to main menu
+            settings();
 
         } else if (option == "ex"){
-            std::cout << "Chose to exit game." << std::endl;
-            break;
+            exitGame();
         }
     }
+// don't think the program ever reaches here
 
-    //outside of infinite while loop
+}
 
+void newGame(){
+    std::string option;
+    //start a "New Game"
+    std::cout << "Chose new game." << std::endl;
+    //choose a save file i guess
+            
+    std::cout << "pick a class" << std::endl;
+    std::cin >> option;
+
+    // std::ifstream fin(option);
+    // std::string nextLine;
+    // while (fin >> nextLine){
+
+    // }
+}
+
+void conGame(){
+    // continue an existing game ( multiple saves system?? )
+    std::cout << "Chose to continue a current save." << std::endl;
+
+    // need a way to go back to main menu
+}
+
+void settings(){
+    // goes to options screen to change stuff
+    std::cout << "Chose settings." << std::endl;
+
+    // need a way to go back to main menu
+}
+
+//redundant??
+void exitGame(){
+    std::cout << "Chose to exit game." << std::endl;
     std::cout << "Game ended successfully" << std::endl;
     exit(0);
-
-    return 0;
 }
+
+
+
 
 void classInfoInsert(std::string classChoice){
     
@@ -73,8 +101,6 @@ void classInfoInsert(std::string classChoice){
     } else if (classChoice == "Pegasus Rider"){
         std::ifstream fin("Pegasus Rider.txt");
     }
-
-    
 
 
 
