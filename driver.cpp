@@ -5,7 +5,6 @@
 
 int main();
 
-
 int main(){
     Player P;
 
