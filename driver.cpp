@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Player.hpp"
+#include "Enemy.hpp"
 
 //function declarations
 int main();
@@ -8,6 +9,8 @@ void newGame();
 void conGame();
 void settings();
 void exitGame();
+// may be moved to a class
+void initBattle(Player player, Enemy enemy);
 
 // function starts up the main menu
 int main(){
@@ -63,7 +66,8 @@ void newGame(){
 
     std::cout << "Name yourself: ";
     std::cin >> nameChoice;
-    std::cout << "pick a class" << std::endl;
+    std::cout << "Pick a class" << std::endl;
+    std::cout << "a: Footsoldier \nb: Pegasus Rider" << std::endl;
     std::cin >> classOption;
     if (classOption == "a"){
         classChoice = "Footsoldier";
@@ -75,9 +79,36 @@ void newGame(){
     std::cin >> skillChoice;
 
     // create a new player object
-    Player P(nameChoice, classChoice, skillChoice);
+    Player mainChar(nameChoice, classChoice, skillChoice);
+
+
+
+
+
+    // testing for battle mechanics
+    // need to find a way to create several enemies by loading from text file
+    Enemy e1("Generic Bandit Joe", "Footsoldier", "Bad Breath");
+
+
+    initBattle(mainChar, e1);
+
+
+
+
     
 }
+
+void initBattle(Player player, Enemy enemy){
+
+    std::cout << player.getName() + " is fighting " + enemy.getName() << std::endl;
+
+
+
+}
+
+
+
+
 
 void conGame(){
     // continue an existing game ( multiple saves system?? )
@@ -99,18 +130,3 @@ void exitGame(){
     std::cout << "Game ended successfully" << std::endl;
     exit(0);
 }
-
-
-
-
-// void classInfoInsert(std::string classChoice){
-    
-//     if (classChoice == "Soldier"){
-//         std::ifstream fin("Soldier.txt");
-//     } else if (classChoice == "Pegasus Rider"){
-//         std::ifstream fin("Pegasus Rider.txt");
-//     }
-
-
-
-// }

@@ -1,15 +1,14 @@
 #include <iostream>
 #include <fstream>
-#include "Player.hpp"
+#include "Enemy.hpp"
 
-Player::Player(std::string nameChoice, std::string classChoice, std::string skillChoice){
+Enemy::Enemy(std::string nameChoice, std::string classChoice, std::string skillChoice){
 
     name = nameChoice;
     classType = classChoice;
-    expCurr = 0;
     
     // update stats
-    std::ifstream fin("Data Files/Player Data/Class Data/" + classChoice + ".txt");
+    std::ifstream fin("Data Files/Player Data/Class Data" + classChoice + ".txt");
     int currLine;
     
     // setting player class base stats
@@ -35,10 +34,10 @@ Player::Player(std::string nameChoice, std::string classChoice, std::string skil
 
 }
 
-Player::~Player(){
+Enemy::~Enemy(){
     
 }
 
-std::string Player::getName(){
+std::string Enemy::getName(){
     return name;
 }

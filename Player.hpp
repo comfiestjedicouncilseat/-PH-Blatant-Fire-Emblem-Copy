@@ -13,6 +13,8 @@ class Player : Entity{
         Player(std::string nameChoice, std::string classChoice, std::string skillChoice);
         ~Player();
 
+        std::string getName();
+
         // need functions to calc stuff like avoid, which depends on stats and inventory weapons
 
 };
